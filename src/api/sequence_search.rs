@@ -9,7 +9,6 @@ use tokio::time::Instant;
 
 use crate::{
     db,
-    model::sequence::Sequence,
     util::{date_wrapper::DateWrapper, search_range},
     AppState,
 };
@@ -44,7 +43,7 @@ pub struct SequenceSearch {
 pub async fn search(
     Query(payload): Query<SequenceSearch>,
     State(state): State<AppState>,
-) -> (StatusCode, Json<Vec<Sequence>>) {
+) -> (StatusCode, Json<Vec<Document>>) {
     log::info!("[/sequenceSearch] GET");
     log::debug!("[/sequenceSearch] recieved request {:?}", payload);
     let pipeline = payload.to_search_pipeline();
@@ -57,8 +56,8 @@ pub async fn search(
     let mut results = db::aggregate(&state.db, &sequence_ns, pipeline).await;
     let mut hits = vec![];
     while results.advance().await.unwrap() {
-        let this: Sequence =
-            mongodb::bson::from_document(results.deserialize_current().unwrap()).unwrap();
+        let this: Document =
+            results.deserialize_current().unwrap();
         log::debug!("[/sequenceSearch] found sequence {:?}", &this);
         hits.push(this);
     }

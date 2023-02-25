@@ -1,0 +1,136 @@
+{
+  "sequence": {
+    "airline_code": {
+      "field": "airlineCode",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "contract_month": {
+      "field": "contractMonth",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "seq_type": {
+      "field": "seqType",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "base": {
+      "field": "base",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "_id": {
+      "field": "_id",
+      "datatype": "oid",
+      "query": "equal"
+    },
+    "base_indicator": {
+      "field": "baseIndicator",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "start_date_start": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "[", "min": { "date": "2022-02-24T00:00:00.000Z" }, "max": { "date": "2022-02-25T00:00:00.000Z" } }},
+      "optional": true
+    },
+    "start_date_end": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "]", "min": { "date": "2022-02-25T00:00:00.000Z" }, "max": { "date": "2022-02-26T00:00:00.000Z" } }},
+      "optional": true
+    },
+    "end_date_start": {
+      "field": "endDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "["}},
+      "optional": true
+    },
+    "end_date_end": {
+      "field": "endDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "]"}},
+      "optional": true
+    },
+    "duration_day_min": {
+      "field": "durationInDays",
+      "datatype": "date",
+      "query": { "range": { "bound": "(", "min": { "int": 2 }, "max":  { "int": 5} }},
+      "optional": true
+    },
+    "duration_day_max": {
+      "field": "durationInDays",
+      "datatype": "date",
+      "query": { "range": { "bound": ")", "min": { "int": 7 }, "max":  { "int": 12} }},
+      "optional": true
+    },
+    "num_legs_min": {
+      "field": "numLegs",
+      "datatype": "date",
+      "query": { "range": { "bound": "[" }},
+      "optional": true
+    },
+    "num_legs_max": {
+      "field": "numLegs",
+      "datatype": "Int",
+      "query": { "range": { "bound": "]" }},
+      "optional": true
+    },
+    "odan": {
+      "field": "odan",
+      "datatype": "Bool",
+      "query": "equal",
+      "optional": true
+    },
+    "red_eye": {
+      "field": "red_eye",
+      "datatype": "Bool",
+      "query": "match",
+      "optional": true
+    },
+    "training": {
+      "field": "training",
+      "datatype": "Bool",
+      "query": "equal",
+      "optional": true
+    },
+    "satellite": {
+      "field": "satellite",
+      "datatype": "Bool",
+      "query": "equal",
+      "optional": true
+    },
+    "observation_trip": {
+      "field": "observationTrip",
+      "datatype": "Bool",
+      "query": "equal",
+      "optional": true
+    }
+  },
+  "test": {
+    "test": {
+      "field": "yes",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "another": {
+      "field": "no",
+      "datatype": "oid",
+      "query": "equal"
+    },
+    "start_date_start": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "[", "min": { "date": "2022-02-24T00:00:00.000Z" }, "max": { "date": "2022-02-25T00:00:00.000Z" } }},
+      "optional": true
+    },
+    "start_date_end": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "]", "min": { "date": "2022-02-25T00:00:00.000Z" }, "max": { "date": "2022-02-26T00:00:00.000Z" } }},
+      "optional": true
+    }
+  }
+}

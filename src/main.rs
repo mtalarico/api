@@ -1,23 +1,21 @@
 mod api;
 mod cli;
 mod db;
-mod model;
 mod translation;
 mod util;
 
-use std::collections::HashMap;
-
 use api::{sequence_query, sequence_search};
 use axum::{routing::get, Router};
-use translation::translation::Translations;
+
+use crate::translation::query_definition::QueryDefinitions;
 
 #[derive(Clone)]
 pub struct AppState {
     pub db: mongodb::Client,
-    pub translations: Translations,
+    pub definitions: QueryDefinitions,
 }
 
-const SEQ_PATH: &str = "./src/api/sequence_mapping.json";
+const DEFINITIONS_PATH: &str = "./query_definitions";
 
 #[tokio::main]
 async fn main() -> mongodb::error::Result<()> {
@@ -36,9 +34,11 @@ async fn main() -> mongodb::error::Result<()> {
 
 async fn init_state(args: cli::Args) -> AppState {
     log::info!("initializing");
-    let translations = Translations::parse_all_in_dir(TRANSLATION_DEFINITION_PATH).await;
+    
+    let definitions = QueryDefinitions::parse_all_in_dir(DEFINITIONS_PATH).await;
+    log::info!("{:#?}", &definitions);
     let db = db::connect(args.uri.as_str()).await.unwrap();
-    AppState { db, translations }
+    AppState { db, definitions }
 }
 
 fn app(state: AppState) -> Router {

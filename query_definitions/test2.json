@@ -1,0 +1,26 @@
+{
+  "test2": {
+    "test": {
+      "field": "yes",
+      "datatype": "string",
+      "query": "equal"
+    },
+    "another": {
+      "field": "no",
+      "datatype": "oid",
+      "query": "equal"
+    },
+    "start_date_start": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "[", "min": { "date": "2022-02-24T00:00:00.000Z" }, "max": { "date": "2022-02-25T00:00:00.000Z" } }},
+      "optional": true
+    },
+    "start_date_end": {
+      "field": "startDate",
+      "datatype": "date",
+      "query": { "range": { "bound": "]", "min": { "date": "2022-02-25T00:00:00.000Z" }, "max": { "date": "2022-02-26T00:00:00.000Z" } }},
+      "optional": true
+    }
+  }
+}

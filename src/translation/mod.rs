@@ -1,1 +1,1 @@
-pub mod translation;
+pub mod query_definition;

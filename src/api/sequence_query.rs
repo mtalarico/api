@@ -9,7 +9,6 @@ use tokio::time::Instant;
 
 use crate::{
     db,
-    model::sequence::Sequence,
     util::{date_wrapper::DateWrapper, query_range},
     AppState,
 };
