@@ -1,0 +1,93 @@
+{
+  "sequence": {
+    "airline_code": {
+      "field": "airlineCode",
+      "query_type": "StringMatch"
+    },
+    "contract_month": {
+      "field": "contractMonth",
+      "query_type": "StringMatch"
+    },
+    "seq_type": {
+      "field": "seqType",
+      "query_type": "StringMatch"
+    },
+    "base": {
+      "field": "base",
+      "query_type": "StringMatch"
+    },
+    "_id": {
+      "field": "_id",
+      "query_type": "ObjectIDMatch"
+    },
+    "base_indicator": {
+      "field": "baseIndicator",
+      "query_type": "StringMatch"
+    },
+    "start_date_start": {
+      "field": "startDate",
+      "query_type": { "DateRange": "InclusiveLower" },
+      "optional": true
+    },
+    "start_date_end": {
+      "field": "startDate",
+      "query_type": { "DateRange": "InclusiveUpper" },
+      "optional": true
+    },
+    "end_date_start": {
+      "field": "endDate",
+      "query_type": { "DateRange": "InclusiveLower" },
+      "optional": true
+    },
+    "end_date_end": {
+      "field": "endDate",
+      "query_type": { "DateRange": "InclusiveUpper" },
+      "optional": true
+    },
+    "duration_day_min": {
+      "field": "durationInDays",
+      "query_type": { "Int32Range": "InclusiveLower" },
+      "optional": true
+    },
+    "duration_day_max": {
+      "field": "durationInDays",
+      "query_type": { "Int32Range": "InclusiveUpper" },
+      "optional": true
+    },
+    "num_legs_min": {
+      "field": "numLegs",
+      "query_type": { "Int32Range": "InclusiveLower" },
+      "optional": true
+    },
+    "num_legs_max": {
+      "field": "numLegs",
+      "query_type": { "Int32Range": "InclusiveUpper" },
+      "optional": true
+    },
+    "odan": {
+      "field": "odan",
+      "query_type": "BoolMatch",
+      "optional": true
+    },
+    "red_eye": {
+      "field": "red_eye",
+      "query_type": "BoolMatch",
+      "optional": true
+    },
+    "training": {
+      "field": "training",
+      "query_type": "BoolMatch",
+      "optional": true
+    },
+    "satellite": {
+      "field": "satellite",
+      "query_type": "BoolMatch",
+      "optional": true
+    },
+    "observation_trip": {
+      "field": "observationTrip",
+      "query_type": "BoolMatch",
+      "optional": true
+    }
+  }
+}
